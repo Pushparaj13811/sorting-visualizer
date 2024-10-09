@@ -15,14 +15,23 @@ body {
 }
 
 .title-container {
-  width: 100%;
-  text-align: center;
-  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0px;
   border-bottom: 1px solid #ccc;
+  width: 100%;
+  align-items: center;
+}
+
+.github-icon {
+  margin-right: 40px;
 }
 
 h1 {
-  margin: 0; /* Remove default margin */
+  flex: 1;
+  text-align: center;
+  margin: 0;
 }
 
 /* Main Container for Two Sections */
