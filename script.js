@@ -34,7 +34,7 @@ function getArray() {
 }
 
 // Function to visualize array in bar format
-function visualizeArray(array) {
+async function visualizeArray(array) {
   const bars = document.querySelectorAll(".bar");
   bars.forEach((bar) => {
     bar.style.backgroundColor = mainColor;
@@ -72,10 +72,10 @@ document.getElementById("sort-button").addEventListener("click", async () => {
   visualizeArray(array);
 
   const selectedAlgorithm = algorithmSelect.value;
-  statusText.innerText = "Sorting...";
-  timeText.innerText = "";
-  timeComplexityText.innerText = "";
-  spaceComplexityText.innerText = "";
+  statusText.innerText = "Status : Sorting...";
+  timeText.innerText = "Time taken : ";
+  timeComplexityText.innerText = "Time complexity : ";
+  spaceComplexityText.innerText = "Space complexity : ";
   const startTime = performance.now();
 
   if (selectedAlgorithm === "bubble") {
