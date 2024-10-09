@@ -20,7 +20,7 @@ let pauseAlgorithm = null;
 function updateTitle() {
   const selectedAlgorithm =
     algorithmSelect.options[algorithmSelect.selectedIndex].text;
-    document.title = `Sorting Algorithm Visualizer - ${selectedAlgorithm}`;
+  document.title = `Sorting Algorithm Visualizer - ${selectedAlgorithm}`;
 }
 
 algorithmSelect.addEventListener("change", updateTitle);
@@ -52,6 +52,10 @@ async function visualizeArray(array) {
     }
   }
 }
+// Clear the array visualization
+inputArray.addEventListener("input", () => {
+    arrayContainer.innerHTML = '';
+  });
 
 // Time and space complexity information
 const complexities = {
