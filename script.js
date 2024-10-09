@@ -6,10 +6,10 @@ const timeComplexityText = document.getElementById("time-complexity-text");
 const spaceComplexityText = document.getElementById("space-complexity-text");
 const stopSorting = document.getElementById("stop-sorting-button");
 const inputArray = document.getElementById("arrayInput");
-const delay = 100;
+const delay = 50;
 const mainColor = "blue";
-const visualColor = "red";
-const finalColor = "crimson";
+const visualColor = "crimson";
+const finalColor = "blue";
 
 let isSorting = true;
 let isPaused = false;
