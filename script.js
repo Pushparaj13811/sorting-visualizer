@@ -15,6 +15,17 @@ let isSorting = true;
 let isPaused = false;
 let pauseAlgorithm = null;
 
+// Function to update title
+
+function updateTitle() {
+  const selectedAlgorithm =
+    algorithmSelect.options[algorithmSelect.selectedIndex].text;
+    document.title = `Sorting Algorithm Visualizer - ${selectedAlgorithm}`;
+}
+
+algorithmSelect.addEventListener("change", updateTitle);
+updateTitle();
+
 // Function to get input array from user
 function getArray() {
   const input = inputArray.value;
