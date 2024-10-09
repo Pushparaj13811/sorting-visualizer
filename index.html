@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorting Visualizer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="title-container">
+      <h1>Sorting Visualizer</h1>
+    </div>
+    <div class="container">
+      <div class="info-container">
+        <div id="info">
+          <h2 id="status-text">Status :</h2>
+          <p id="time-text">Time taken :</p>
+          <p id="time-complexity-text">Time complexity :</p>
+          <p id="space-complexity-text">Space complexity :</p>
+        </div>
+        <div id="input-array">
+          <label>Enter your array : </label>
+          <input type="text" id="arrayInput" placeholder="5 3 8 2 45 6" />
+        </div>
+        <select id="algorithm-select">
+          <option value="bubble">Bubble Sort</option>
+          <option value="selection">Selection Sort</option>
+          <option value="insertion">Insertion Sort</option>
+          <option value="merge">Merge Sort</option>
+          <option value="quick">Quick Sort</option>
+          <option value="heap">Heap Sort</option>
+          <option value="counting">Counting Sort</option>
+          <option value="radix">Radix Sort</option>
+          <option value="bucket">Bucket Sort</option>
+        </select>
+        <div class="button-container">
+          <button id="sort-button">Sort</button>
+          <button id="reset-button">Reset</button>
+          <button id="stop-sorting-button">Stop</button>
+        </div>
+      </div>
+      <div id="array-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

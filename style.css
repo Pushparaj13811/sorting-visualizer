@@ -1,0 +1,189 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-container {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+h1 {
+  margin: 0; /* Remove default margin */
+}
+
+/* Main Container for Two Sections */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+  height: calc(100vh - 80px);
+  margin-right: 20px;
+}
+
+/* Styling for Info Section */
+#info {
+  width: 100%;
+  padding: 0 10px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Input Array Styling */
+#input-array {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 10px; /* Add padding */
+}
+
+#input-array input {
+  flex: 1; /* Take full width */
+  padding: 5px;
+  margin-left: 10px; /* Space between label and input */
+}
+
+/* Array Container */
+#array-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  min-height: 450px;
+  width: 100%;
+  max-width: 800px;
+  border: 2px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.bar {
+  width: 10px;
+  margin: 0 2px;
+  transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+button {
+  padding: 10px 0;
+  width: 100px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#sort-button {
+  background-color: rgb(7, 121, 7);
+}
+
+#reset-button {
+  background-color: rgb(157, 157, 3);
+}
+
+#stop-sorting-button {
+  background-color: rgb(161, 2, 2);
+}
+
+/* Select Box */
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Status Text */
+#status-text {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 450px) {
+  .info-container {
+    order: 2;
+    border-top: 1px solid #ccc;
+  }
+  #array-container {
+    order: 1;
+  }
+}
+
+@media (min-width: 600px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .info-container {
+    width: 30%;
+    border-right: 1px solid #ccc;
+  }
+
+  #array-container {
+    width: 70%;
+  }
+}
+
+@media (min-width: 800px) {
+  #array-container {
+    min-height: 450px;
+    height: 500px;
+  }
+
+  button {
+    font-size: 20px;
+  }
+
+  select {
+    font-size: 20px;
+  }
+}
