@@ -77,7 +77,7 @@ document.getElementById("sort-button").addEventListener("click", async () => {
 
   const selectedAlgorithm = algorithmSelect.value;
   statusText.innerText = "Status : Sorting...";
-  timeText.innerText = "Time taken : ";
+  timeText.innerText = "Total Time taken : ";
   timeComplexityText.innerText = "Time complexity : ";
   spaceComplexityText.innerText = "Space complexity : ";
   const startTime = performance.now();
@@ -107,7 +107,7 @@ document.getElementById("sort-button").addEventListener("click", async () => {
   const endTime = performance.now();
   const totalTime = (endTime - startTime).toFixed(2);
   statusText.innerText = "Sorted!";
-  timeText.innerText = `Total Time: ${totalTime} ms using ${
+  timeText.innerText = `Total Time taken : ${totalTime} ms using ${
     selectedAlgorithm.charAt(0).toUpperCase() + selectedAlgorithm.slice(1)
   } Sort`;
 
