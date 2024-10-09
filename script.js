@@ -7,6 +7,9 @@ const spaceComplexityText = document.getElementById("space-complexity-text");
 const stopSorting = document.getElementById("stop-sorting-button");
 const inputArray = document.getElementById("arrayInput");
 const delay = 100;
+const mainColor = "blue";
+const visualColor = "red";
+const finalColor = "crimson";
 
 let isSorting = true;
 let isPaused = false;
@@ -22,6 +25,9 @@ function getArray() {
 // Function to visualize array in bar format
 function visualizeArray(array) {
   const bars = document.querySelectorAll(".bar");
+  bars.forEach((bar) => {
+    bar.style.backgroundColor = mainColor;
+  });
 
   for (let i = 0; i < array.length; i++) {
     if (bars[i]) {
@@ -30,7 +36,7 @@ function visualizeArray(array) {
       const bar = document.createElement("div");
       bar.className = "bar";
       bar.style.height = `${array[i] * 4}px`;
-      bar.style.backgroundColor = "blue";
+      bar.style.backgroundColor = mainColor;
       arrayContainer.appendChild(bar);
     }
   }
@@ -93,9 +99,8 @@ document.getElementById("sort-button").addEventListener("click", async () => {
   timeComplexityText.innerText = `Time Complexity: ${complexities[selectedAlgorithm].time}`;
   spaceComplexityText.innerText = `Space Complexity: ${complexities[selectedAlgorithm].space}`;
 
-  // After sorting is done, reset all bars' color to blue
   document.querySelectorAll(".bar").forEach((bar) => {
-    bar.style.backgroundColor = "blue";
+    bar.style.backgroundColor = finalColor;
   });
 });
 
@@ -142,7 +147,7 @@ async function bubbleSort(array) {
         return;
       }
 
-      colorBars(bars, [j, j + 1], "red");
+      colorBars(bars, [j, j + 1], visualColor);
       await new Promise((resolve) => setTimeout(resolve, delay));
 
       if (array[j] > array[j + 1]) {
@@ -151,7 +156,7 @@ async function bubbleSort(array) {
         visualizeArray(array);
       }
 
-      colorBars(bars, [j, j + 1], "blue");
+      colorBars(bars, [j, j + 1], mainColor);
     }
 
     if (!swapped) break;
@@ -164,28 +169,28 @@ async function selectionSort(array) {
   const bars = document.querySelectorAll(".bar");
   for (let i = 0; i < array.length; i++) {
     let minIdx = i;
-    colorBars(bars, [minIdx], "red");
+    colorBars(bars, [minIdx], visualColor);
 
     for (let j = i + 1; j < array.length; j++) {
       if (isPaused) {
         pauseAlgorithm = () => selectionSort(array);
         return;
       }
-      colorBars(bars, [j], "red");
+      colorBars(bars, [j], visualColor);
       await new Promise((resolve) => setTimeout(resolve, delay));
 
       if (array[j] < array[minIdx]) {
-        colorBars(bars, [minIdx], "blue");
+        colorBars(bars, [minIdx], mainColor);
         minIdx = j;
-        colorBars(bars, [minIdx], "red");
+        colorBars(bars, [minIdx], visualColor);
       }
 
-      colorBars(bars, [j], "blue");
+      colorBars(bars, [j], mainColor);
     }
 
     [array[i], array[minIdx]] = [array[minIdx], array[i]];
     visualizeArray(array);
-    colorBars(bars, [minIdx], "blue");
+    colorBars(bars, [minIdx], mainColor);
   }
 }
 
@@ -195,7 +200,7 @@ async function insertionSort(array) {
   for (let i = 1; i < array.length; i++) {
     let key = array[i];
     let j = i - 1;
-    colorBars(bars, [i], "red");
+    colorBars(bars, [i], visualColor);
     await new Promise((resolve) => setTimeout(resolve, delay));
 
     while (j >= 0 && array[j] > key) {
@@ -203,17 +208,17 @@ async function insertionSort(array) {
         pauseAlgorithm = () => insertionSort(array);
         return;
       }
-      colorBars(bars, [j], "red");
+      colorBars(bars, [j], visualColor);
       array[j + 1] = array[j];
       visualizeArray(array);
       await new Promise((resolve) => setTimeout(resolve, delay));
-      colorBars(bars, [j], "blue");
+      colorBars(bars, [j], mainColor);
       j--;
     }
 
     array[j + 1] = key;
     visualizeArray(array);
-    colorBars(bars, [i], "blue");
+    colorBars(bars, [i], mainColor);
   }
 }
 
@@ -242,18 +247,18 @@ async function merge(left, right, originalArray) {
       originalArray[k++] = right[j++];
     }
 
-    colorBars(document.querySelectorAll(".bar"), [k - 1], "blue");
+    colorBars(document.querySelectorAll(".bar"), [k - 1], mainColor);
     await new Promise((resolve) => setTimeout(resolve, delay));
   }
 
   while (i < left.length) {
     originalArray[k++] = left[i++];
-    colorBars(document.querySelectorAll(".bar"), [k - 1], "blue");
+    colorBars(document.querySelectorAll(".bar"), [k - 1], mainColor);
     await new Promise((resolve) => setTimeout(resolve, delay));
   }
   while (j < right.length) {
     originalArray[k++] = right[j++];
-    colorBars(document.querySelectorAll(".bar"), [k - 1], "blue");
+    colorBars(document.querySelectorAll(".bar"), [k - 1], mainColor);
     await new Promise((resolve) => setTimeout(resolve, delay));
   }
 
@@ -279,7 +284,7 @@ async function partition(array, low, high) {
       pauseAlgorithm = () => quickSort(array);
       return;
     }
-    colorBars(document.querySelectorAll(".bar"), [j], "red");
+    colorBars(document.querySelectorAll(".bar"), [j], visualColor);
     await new Promise((resolve) => setTimeout(resolve, delay));
 
     if (array[j] < pivot) {
@@ -288,7 +293,7 @@ async function partition(array, low, high) {
       visualizeArray(array);
     }
 
-    colorBars(document.querySelectorAll(".bar"), [j], "blue");
+    colorBars(document.querySelectorAll(".bar"), [j], mainColor);
   }
   [array[i + 1], array[high]] = [array[high], array[i + 1]];
   visualizeArray(array);
@@ -357,7 +362,7 @@ async function countingSort(array) {
 
     output[index] = currentValue;
 
-    colorBars(document.querySelectorAll(".bar"), [i], "red");
+    colorBars(document.querySelectorAll(".bar"), [i], visualColor);
     await new Promise((resolve) => setTimeout(resolve, delay));
 
     count[currentValue]--;
@@ -365,7 +370,7 @@ async function countingSort(array) {
 
   for (let i = 0; i < array.length; i++) {
     array[i] = output[i];
-    colorBars(document.querySelectorAll(".bar"), [i], "blue");
+    colorBars(document.querySelectorAll(".bar"), [i], mainColor);
     await new Promise((resolve) => setTimeout(resolve, delay));
   }
 
@@ -377,11 +382,12 @@ async function radixSort(array) {
   const max = Math.max(...array);
 
   for (let exp = 1; Math.floor(max / exp) > 0; exp *= 10) {
-    await countingSortForRadix(array, exp);
+    await countingSortForRadix(array, exp, delay);
+    visualizeArray(array);
   }
 }
 
-async function countingSortForRadix(array, exp) {
+async function countingSortForRadix(array, exp, delay) {
   const output = new Array(array.length);
   const count = new Array(10).fill(0);
 
@@ -399,18 +405,16 @@ async function countingSortForRadix(array, exp) {
     output[count[index] - 1] = array[i];
     count[index]--;
 
+    colorBars(document.querySelectorAll(".bar"), [i], visualColor);
     await new Promise((resolve) => setTimeout(resolve, delay));
-    colorBars(document.querySelectorAll(".bar"), [i], "red");
-    visualizeArray(output, array);
   }
 
   for (let i = 0; i < array.length; i++) {
     array[i] = output[i];
-    colorBars(document.querySelectorAll(".bar"), [i], "blue");
-    rs;
+    colorBars(document.querySelectorAll(".bar"), [i], mainColor);
+    await new Promise((resolve) => setTimeout(resolve, delay));
   }
 
-  await new Promise((resolve) => setTimeout(resolve, delay));
   visualizeArray(array);
 }
 
@@ -425,9 +429,9 @@ async function bucketSort(array) {
       (array[i] / Math.max(...array)) * (bucketCount - 1)
     );
     buckets[bucketIndex].push(array[i]);
-    colorBars(bars, [i], "red");
+    colorBars(bars, [i], visualColor);
     await new Promise((resolve) => setTimeout(resolve, delay));
-    colorBars(bars, [i], "blue");
+    colorBars(bars, [i], mainColor);
   }
 
   let index = 0;
