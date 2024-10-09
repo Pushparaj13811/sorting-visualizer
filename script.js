@@ -106,7 +106,7 @@ document.getElementById("sort-button").addEventListener("click", async () => {
 
   const endTime = performance.now();
   const totalTime = (endTime - startTime).toFixed(2);
-  statusText.innerText = "Sorted!";
+  statusText.innerText = "Status : Sorted!";
   timeText.innerText = `Total Time taken : ${totalTime} ms using ${
     selectedAlgorithm.charAt(0).toUpperCase() + selectedAlgorithm.slice(1)
   } Sort`;
