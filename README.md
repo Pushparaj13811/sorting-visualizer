@@ -44,7 +44,7 @@ This project provides an interactive web-based tool to visualize various sorting
 
 ## Live Demo
 
-You can try the live demo of the project [here](https://sorting-algo-visualizer-pushparaj.netlify.app/).
+You can try the live demo of the project [here](https://algorithmsort.netlify.app/).
 
 ## Installation
 
