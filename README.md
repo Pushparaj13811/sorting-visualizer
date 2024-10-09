@@ -7,9 +7,14 @@ This project provides an interactive web-based tool to visualize various sorting
 - **Multiple Sorting Algorithms:** Visualize algorithms such as:
 
   - Bubble Sort
-  - Bucket Sort
+  - Selection Sort
+  - Insertion Sort
   - Merge Sort
+  - Quick Sort
+  - Heap Sort
+  - Counting Sort
   - Radix Sort
+  - Bucket Sort
 
 - **Interactive Input:** Users can enter any array of integers and select the desired sorting algorithm from a dropdown menu.
 
