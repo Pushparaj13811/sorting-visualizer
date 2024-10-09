@@ -20,6 +20,28 @@ This project provides an interactive web-based tool to visualize various sorting
 
 - **Real-time Visualization:** The sorting process is displayed through dynamically generated bars, showcasing comparisons and swaps in an engaging way.
 
+## Images
+
+### Home
+
+![Home](./assets/home.png)
+
+### Visualization Area
+
+![Visualization Area](./assets/visualization-area.png)
+
+### Info Area
+
+![Info Area](./assets/info-area.png)
+
+### Algorithm Selection Dropdown
+
+![Algorithm Selection Dropdown](./assets/algo-dropdown.png)
+
+### Final Output 
+
+![Final Output](./assets/finalOutput.png)
+
 ## Live Demo
 
 You can try the live demo of the project [here](https://sorting-algo-visualizer-pushparaj.netlify.app/).
@@ -41,7 +63,7 @@ To run this project locally, follow these steps:
 ## Usage
 
 1. Open the application in your browser.
-2. Enter a list of integers in the input field, separated by commas.
+2. Enter a list of integers in the input field, separated by space.
 3. Select a sorting algorithm from the dropdown menu.
 4. Click the "Sort" button to visualize the sorting process.
 
